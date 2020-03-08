@@ -11,5 +11,5 @@ interface Ships {
     /**
      * @return Ship[]
      */
-    function getAll(): array;
+    function getAll($language = 'PL'): array;
 }

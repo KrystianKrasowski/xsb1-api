@@ -39,6 +39,11 @@ class ShipBuilder {
         return $this;
     }
 
+    public function type($type) {
+        $this->type = $type;
+        return $this;
+    }
+
     public function skill($skill) {
         $this->skill = $skill;
         return $this;

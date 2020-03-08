@@ -20,10 +20,21 @@ class GetAllAction {
     }
 
     public function __invoke(Request $request, Response $response, $args): Response {
+        $language = $this->getLanguage($request);
         $body = $response->getBody();
-        $body->write(json_encode($this->ships->getAll()));
+        $body->write(json_encode($this->ships->getAll($language)));
         return $response
             ->withBody($body)
             ->withHeader('Content-Type', 'application/json');
+    }
+
+    private function getLanguage(Request $request) {
+        $language = $request->getHeader('Accept-Language')[0];
+
+        if ($language != null && $language != "") {
+            return trim(strtoupper($language));
+        }
+
+        return null;
     }
 }

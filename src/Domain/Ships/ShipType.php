@@ -28,6 +28,10 @@ class ShipType implements JsonSerializable {
         return new ShipType(self::TieFighterFo, self::Empire);
     }
 
+    public static function of($type, $fraction) {
+        return new ShipType($type, $fraction);
+    }
+
     public function getType(): string {
         return $this->type;
     }

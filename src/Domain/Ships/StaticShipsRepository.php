@@ -32,7 +32,7 @@ class StaticShipsRepository implements ShipsRepository {
             ->build();
     }
 
-    function getAll(): array {
+    function getAll($language = "PL"): array {
         return [
             self::kirKanos(),
             self::epsilonLeader(),

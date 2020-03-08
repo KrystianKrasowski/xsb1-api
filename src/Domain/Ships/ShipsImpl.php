@@ -16,9 +16,10 @@ class ShipsImpl implements Ships {
     }
 
     /**
+     * @param string $language
      * @return Ship[]
      */
-    public function getAll(): array {
-        return $this->shipsRepository->getAll();
+    public function getAll($language = 'PL'): array {
+        return $this->shipsRepository->getAll($language);
     }
 }

@@ -6,5 +6,5 @@ namespace App\Domain\Ships\Spi;
 
 interface ShipsRepository {
 
-    function getAll(): array;
+    function getAll($language = 'PL'): array;
 }
