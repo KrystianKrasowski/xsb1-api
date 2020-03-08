@@ -3,8 +3,10 @@
 
 namespace App\Domain\Ships;
 
+use JsonSerializable;
 
-interface Ship {
+
+interface Ship extends JsonSerializable {
 
     function getName(): string;
 

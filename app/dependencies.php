@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+use App\Domain\Ships\Api\Ships;
+use App\Domain\Ships\ShipsImpl;
+use App\Domain\Ships\StaticShipsRepository;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -24,5 +27,10 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $logger;
         },
+
+        Ships::class => function () {
+            $shipsRepository = new StaticShipsRepository();
+            return new ShipsImpl($shipsRepository);
+        }
     ]);
 };

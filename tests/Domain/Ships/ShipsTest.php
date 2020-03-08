@@ -6,9 +6,9 @@ namespace Tests\Domain\Ships;
 
 
 use App\Domain\Ships\Api\Ships;
-use App\Domain\Ships\ShipBuilder;
 use App\Domain\Ships\ShipsFactory;
 use App\Domain\Ships\Spi\ShipsRepository;
+use App\Domain\Ships\StaticShipsRepository;
 use Tests\TestCase;
 
 class ShipsTest extends TestCase {
@@ -30,15 +30,7 @@ class ShipsTest extends TestCase {
 
     public function testAllShips() {
         $expectedShips = [
-            ShipBuilder::tieInterceptor()
-                ->name("Kir Kanos")
-                ->skill(6)
-                ->power(3)
-                ->agility(3)
-                ->hitPoints(3)
-                ->shield(0)
-                ->description("Kiedy atakujesz w zasięgu 2-3, możesz wydać 1 żeton uników, aby dodać 1 :damage: do swojego wyniku.")
-                ->build(),
+            StaticShipsRepository::kirKanos(),
         ];
 
         $this->shipsRepository->method('getAll')

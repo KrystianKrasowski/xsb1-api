@@ -28,6 +28,12 @@ class ShipBuilder {
         return $builder;
     }
 
+    public static function tieFighterFo(): ShipBuilder {
+        $builder = new ShipBuilder();
+        $builder->type = ShipType::tieFighterFo();
+        return $builder;
+    }
+
     public function name($name) {
         $this->name = $name;
         return $this;

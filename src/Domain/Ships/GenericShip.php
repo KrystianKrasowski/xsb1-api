@@ -59,4 +59,17 @@ class GenericShip implements Ship {
     public function __toString() {
         return $this->type->getType() . "(" . $this->name . ")";
     }
+
+    public function jsonSerialize() {
+        return [
+            'name' => $this->name,
+            'type' => $this->type,
+            'skill' => $this->skill,
+            'power' => $this->power,
+            'agility' => $this->agility,
+            'hitPoints' => $this->hitPoints,
+            'shield' => $this->shield,
+            'description' => $this->description,
+        ];
+    }
 }
